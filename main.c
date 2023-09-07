@@ -16,9 +16,9 @@
  strlen  +
  strcpy  +
  strncpy +
- strcat  +
- strncat
- fgets
+ strcat  ++
+ strncat +?
+ fgets   ??
  * strdup
  * getline
  */
@@ -100,6 +100,23 @@ int main() {
 
         printf("src : %s\n", src);
         printf("dest: %s\n", dst);
+    }    
+
+    {
+        puts("\nTEST: strncat()");
+
+        char buff[24] = {};
+        memset(buff, 'a', 10);
+        buff[1] = '\0';
+        char sample[] = "Hi";
+
+        printf("src : %s\n", sample);
+        printf("dest: %s\n", buff);
+
+        dumb_strncat(buff+1, sample, 5);
+
+        printf("src : %s\n", sample);
+        printf("dest: %s\n", buff);   
     }    
 
 

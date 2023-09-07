@@ -22,7 +22,6 @@ char *dumb_strncpy(char dst[], const char *restrict src, size_t sz) {
         dst[i] = src[i];
     }
     */
-
     return dst;
 }
 

@@ -18,13 +18,31 @@
  *                                                                          
  *                                                                          
  */
+/*
 char *dumb_strncat(char *restrict dst, const char *restrict src, size_t sz) {
     // REDUCE OVERLAPS COUNT
-    size_t len = dumb_strnlen(src, sz);
     char* first = dst + dumb_strlen(dst);
 
+    // ?????
+    size_t len = dumb_strnlen(src, sz);
     char* last = mempcpy(first, src, len);
+    // ?????
+
     *last = '\0';
+
+    return dst;
+}
+*/
+
+char *dumb_strncat(char *restrict dst, const char *restrict src, size_t sz) {
+    char* to = dst + dumb_strlen(dst);
+    for (size_t i = 0; i < sz; i++) {
+        if ( (*to = *src) ) {
+            ++to;
+            ++src;
+        }
+    }
+    *to = '\0';
 
     return dst;
 }
