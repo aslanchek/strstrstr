@@ -16,7 +16,10 @@
  *                     
  */
 char *dumb_strcat(char *restrict dst, const char *restrict src) {
-    char* last = mempcpy(dst + dumb_strlen(dst), src, dumb_strlen(src));
+
+   //char* last = mempcpy(dst + dumb_strlen(dst), src, dumb_strlen(src));
+    char* last = dumb_stpcpy(dst + dumb_strlen(dst), src);
+
     *last = '\0';
     return dst;
 }

@@ -14,6 +14,8 @@ char *dumb_strchr(const char *s, int c);
 
 char *dumb_strcpy(char *restrict dst, const char *restrict src);
 
+char *dumb_stpcpy(char *restrict dst, const char *restrict src);
+
 char *dumb_strncpy(char dst[], const char *restrict src, size_t sz);
 
 char *dumb_strcat(char *restrict dst, const char *restrict src);

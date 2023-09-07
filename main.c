@@ -15,8 +15,8 @@
  strchr  +
  strlen  +
  strcpy  +
- strncpy
- strcat
+ strncpy +
+ strcat  +
  strncat
  fgets
  * strdup

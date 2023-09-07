@@ -16,9 +16,9 @@ CFLAGS_LIBS    = -lm
 CFLAGS         = -O0 -g $(CFLAGS_LIBS) -I$(INCLUDE) -fsanitize=$(CFLAGS_SANITZS) $(CFLAGS_WARNS)
 
 #### Libraries
-LIBS     	= $(LIB)/dumb_puts.c $(LIB)/dumb_strcat.c $(LIB)/dumb_strchr.c $(LIB)/dumb_strcpy.c $(LIB)/dumb_strlen.c $(LIB)/dumb_strncat.c $(LIB)/dumb_strncpy.c $(LIB)/dumb_strnlen.c $(LIB)/dumb_fgets.c $(INCLUDE)/dumb_string.h
+LIBS     	= $(LIB)/dumb_puts.c $(LIB)/dumb_strcat.c $(LIB)/dumb_strchr.c $(LIB)/dumb_strcpy.c $(LIB)/dumb_strlen.c $(LIB)/dumb_strncat.c $(LIB)/dumb_strncpy.c $(LIB)/dumb_strnlen.c $(LIB)/dumb_fgets.c $(INCLUDE)/dumb_stpcpy.c $(INCLUDE)/dumb_string.h
 
-LIBS_OBJ  	= $(OBJ)/dumb_puts.o $(OBJ)/dumb_strcat.o $(OBJ)/dumb_strchr.o $(OBJ)/dumb_strcpy.o $(OBJ)/dumb_strlen.o $(OBJ)/dumb_strncat.o $(OBJ)/dumb_strncpy.o $(OBJ)/dumb_strnlen.o $(OBJ)/dumb_fgets.o
+LIBS_OBJ  	= $(OBJ)/dumb_puts.o $(OBJ)/dumb_strcat.o $(OBJ)/dumb_strchr.o $(OBJ)/dumb_strcpy.o $(OBJ)/dumb_strlen.o $(OBJ)/dumb_strncat.o $(OBJ)/dumb_strncpy.o $(OBJ)/dumb_strnlen.o $(OBJ)/dumb_fgets.o $(OBJ)/dumb_stpcpy.o
 
 
 EXECUTABLE = main
@@ -74,6 +74,10 @@ $(OBJ)/dumb_strncat.o: $(LIB)/dumb_strncat.c
 	@$(CC) $(CFLAGS) -c $^ -o $@ 
 
 $(OBJ)/dumb_fgets.o: $(LIB)/dumb_fgets.c
+	@echo [CC] $< -o $@
+	@$(CC) $(CFLAGS) -c $^ -o $@ 
+
+$(OBJ)/dumb_stpcpy.o: $(LIB)/dumb_stpcpy.c
 	@echo [CC] $< -o $@
 	@$(CC) $(CFLAGS) -c $^ -o $@ 
 
