@@ -33,7 +33,7 @@ char *dumb_fgets(char s[], int size, FILE *restrict stream) {
                 break;
             }
         }
-    s[i + 1] = '\0'; // TODO: i or i+1 ??? consider EOF variant
+    s[i] = '\0';
     return s;
 }
 

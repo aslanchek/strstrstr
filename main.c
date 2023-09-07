@@ -119,6 +119,17 @@ int main() {
         printf("dest: %s\n", buff);   
     }    
 
+    {
+        puts("\nTEST: fgets()");
+        char buff[10] = {};
+        memset(buff, '_', 9);
+
+        dumb_fgets(buff+1, 3, stdin);
+        //fgets(buff+1, 3, stdin);
+
+        dumb_puts(buff);
+    }
+
 
     return 0;
 }
