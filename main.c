@@ -58,6 +58,25 @@ int main() {
     }
 
     {
+        puts("\nTEST: strncpy()");
+        char buff[6] = { };
+        memset(buff, 'a', 5);
+        // buff -> aaaaaa00asd
+        // buff -> Hellaa00asd
+        char sample[] = "Hello world";
+
+        printf("src : %s\n", sample);
+        printf("dest: %s\n", buff);
+
+        dumb_strncpy(buff, sample, 4);
+
+        printf("src : %s\n", sample);
+        printf("dest: %s\n", buff);
+
+        memset(buff, 0, 6);
+    }
+
+    {
         puts("\nTEST: strcat()");
         char src[] = " World";
         char dst[256] = "Hello";

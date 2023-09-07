@@ -15,7 +15,14 @@
  */
 char *dumb_strncpy(char dst[], const char *restrict src, size_t sz) {
     memset(dst, 0, sz);
-    dumb_strcpy(dst, src);
+    memcpy(dst, src, sz);
+    // OR
+    /*
+    for (size_t i = 0; i < sz; i++) {
+        dst[i] = src[i];
+    }
+    */
+
     return dst;
 }
 
