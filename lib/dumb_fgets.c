@@ -29,7 +29,7 @@
  *
  */  
 char *dumb_fgets(char s[], int size, FILE *restrict stream) {
-    if (feof(stream) && ferror(stream)) {
+    if (feof(stream) || ferror(stream)) {
         return NULL;
     }
 
