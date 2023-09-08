@@ -41,16 +41,18 @@ char *dumb_fgets(char s[], int size, FILE *restrict stream) {
             if (i == 0) {
                 return NULL;
             }
-
             s[i] = '\0';
             return s;
+
         } else if (tmp == '\n') {
             s[i] = '\n';
             s[i+1] = '\0';
             return s;
+
         } else if (tmp == '\0') {
             s[i] = '\0';
             return s;
+
         } else {
             s[i] = (char) tmp;
         }

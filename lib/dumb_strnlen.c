@@ -3,12 +3,11 @@
 // ^
 // s
 size_t dumb_strnlen(const char *s, size_t maxlen) {
-    size_t count = 0;
-
-    while ( *s++ ) {
-        count++;
+    for (size_t i = 0; i < maxlen - 1; i++) {
+        if ( !(*s++) ) {
+            return i;
+        }
     }
-
-    return count < maxlen ? count : maxlen;
+    return maxlen;
 }
 

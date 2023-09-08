@@ -46,6 +46,8 @@ void DUMP_BUFFER(char *buffer, size_t sz) {
     fprintf(stderr, "<\n");
 }
 
+#define TEST(name, str) if (name(str) == dumb_##name(str) printf("OK")
+
 int main() {
     {
         char str[] = "abcdefg";

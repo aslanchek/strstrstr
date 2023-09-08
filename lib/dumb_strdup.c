@@ -2,7 +2,7 @@
 
 char *dumb_strdup(const char *s) {
     char *newptr = calloc(strlen(s) + 1, sizeof(s[0]));
-    if (!newptr) {
+    if (newptr) {
         dumb_strcpy(newptr, s);
     }
     return newptr;
