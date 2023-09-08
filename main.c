@@ -18,8 +18,8 @@
  strncpy +
  strcat  ++
  strncat +?
- fgets   +
- * strdup
+ fgets   ++++
+ strdup  +
  * getline
  */
 
@@ -179,6 +179,26 @@ int main() {
         }
     }
 
+    {
+        puts("\n TEST: strdup(str)");
+        char str[] = "Hello World!";
+
+        {
+            puts("strdup() from stdio.h");
+            char *p = strdup(str);
+            fprintf(stderr, "allocated ptr: %p\n", p);
+            dumb_puts(p);
+            free(p);
+        }
+
+        {
+            puts("dumb_strdup() from dumb_string.h");
+            char *p = dumb_strdup(str);
+            fprintf(stderr, "allocated ptr: %p\n", p);
+            dumb_puts(p);
+            free(p);
+        }
+    }
 
     return 0;
 }

@@ -1,11 +1,10 @@
 #include <dumb_string.h>
 
-/*
- *
- *
- */
 char *dumb_strdup(const char *s) {
-    char *newstr = calloc(strlen(s), sizeof(s[0])); // -> 
-    dumb_strcpy(newstr, s);
-    return newstr;
+    char *newptr = calloc(strlen(s), sizeof(s[0]));
+    if (!newptr) {
+        dumb_strcpy(newptr, s);
+    }
+    return newptr;
 }
+
