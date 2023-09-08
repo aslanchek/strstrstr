@@ -23,6 +23,29 @@
  * getline
  */
 
+void DUMP_BUFFER(char *buffer, size_t sz);
+
+void DUMP_BUFFER(char *buffer, size_t sz) {
+    fprintf(stderr, "buff: >");
+
+    for (size_t i = 0; i < sz; i++) {
+        char tmp = buffer[i];
+        switch(tmp) {
+            case '\n': 
+                fprintf(stderr, "%c", '|'); // '|' stands for \n
+                break;
+            case '\0':
+                fprintf(stderr, "%c", '_'); // '_' stands for \0
+                break;
+            default: 
+                fprintf(stderr, "%c", tmp);
+                break;
+        }
+    }
+
+    fprintf(stderr, "<\n");
+}
+
 int main() {
     {
         char str[] = "abcdefg";
@@ -138,21 +161,22 @@ int main() {
     }    
 
     {
-        char buff[10] = {};
-        fprintf(stderr, "----------------\n");
-        dumb_fgets(buff, 3, stdin);
-        fflush(stdout);
-        //fgets(buff+1, 3, stdin);
-        fprintf(stderr, "\n%s", buff);
-        fprintf(stderr, "----------------\n");
-    }
-    {
-        char buff[10] = {};
-        fprintf(stderr, "----------------\n");
-        //dumb_fgets(buff, 3, stdin);
-        fgets(buff, 3, stdin);
-        fprintf(stderr, "\n%s", buff);
-        fprintf(stderr, "----------------\n");
+        puts("\nTEST: fgets()");
+        {
+            FILE *f = fopen("test.txt", "r");
+            char buff[16] = {};
+            puts("fgets() from stdio.h");
+            fgets(buff, 16, f);
+            DUMP_BUFFER(buff, 16);
+        }
+
+        {
+            FILE *f = fopen("test.txt", "r");
+            char buff[16] = {};
+            puts("fgets() from dumb_string.h");
+            dumb_fgets(buff, 16, f);
+            DUMP_BUFFER(buff, 16);
+        }
     }
 
 
