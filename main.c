@@ -50,7 +50,7 @@ int main() {
     {
         char str[] = "abcdefg";
 
-        puts("\nTEST: puts()");
+        puts("\nTEST: puts(str)");
         dumb_puts(str);
         puts(str);
     
@@ -59,7 +59,7 @@ int main() {
     }
 
     {
-        puts("\nTEST: strcpy()");
+        puts("\nTEST: strcpy(dst, src)");
         char src[] = "Hello World";
         char dst[256] = {};
         printf("src : %s\n", src);
@@ -70,7 +70,7 @@ int main() {
     }
 
     {
-        puts("\nTEST: strchr()");
+        puts("\nTEST: strchr(str, 'W')");
         const char str[] = "Hello World";
         char tofind = 'W';
 
@@ -86,7 +86,7 @@ int main() {
  
 
     {
-        puts("\nTEST: strncpy()");
+        puts("\nTEST: strncpy(dst, src, 4)");
         char src[] = "Hello World";
         char dst[256] = {};
         printf("src : %s\n", src);
@@ -99,26 +99,26 @@ int main() {
     }
 
     {
-        puts("\nTEST: strncpy()");
+        puts("\nTEST: strncpy(buff, sample, 4)");
         char buff[6] = { };
         memset(buff, 'a', 5);
         // buff -> aaaaaa00asd
         // buff -> Hellaa00asd
         char sample[] = "Hello world";
 
-        printf("src : %s\n", sample);
-        printf("dest: %s\n", buff);
+        printf("sample: %s\n", sample);
+        printf("buff  : %s\n", buff);
 
         dumb_strncpy(buff, sample, 4);
 
-        printf("src : %s\n", sample);
-        printf("dest: %s\n", buff);
+        printf("sample: %s\n", sample);
+        printf("buff  : %s\n", buff);
 
         memset(buff, 0, 6);
     }
 
     {
-        puts("\nTEST: strcat()");
+        puts("\nTEST: strcat(dest, src)");
         char src[] = " World";
         char dst[256] = "Hello";
         printf("src : %s\n", src);
@@ -131,7 +131,7 @@ int main() {
     }
 
     {
-        puts("\nTEST: strncat()");
+        puts("\nTEST: strncat(dest, src, 4)");
         char src[] = " World";
         char dst[256] = "Hello";
         printf("src : %s\n", src);
@@ -144,7 +144,7 @@ int main() {
     }    
 
     {
-        puts("\nTEST: strncat()");
+        puts("\nTEST: strncat(dest+1, src, 5)");
 
         char buff[24] = {};
         memset(buff, 'a', 10);
@@ -161,7 +161,7 @@ int main() {
     }    
 
     {
-        puts("\nTEST: fgets()");
+        puts("\nTEST: fgets(buff, 16, file)");
         {
             FILE *f = fopen("test.txt", "r");
             char buff[16] = {};
