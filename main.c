@@ -18,20 +18,22 @@
  strncpy +
  strcat  ++
  strncat +?
- fgets   ??
+ fgets   +
  * strdup
  * getline
  */
 
 int main() {
-    char str[] = "abcdefg";
+    {
+        char str[] = "abcdefg";
 
-    puts("\nTEST: puts()");
-    dumb_puts(str);
-    puts(str);
+        puts("\nTEST: puts()");
+        dumb_puts(str);
+        puts(str);
     
-    // TEST: strlen()
-    assert( strlen(str) == dumb_strlen(str));
+        // TEST: strlen()
+        assert( strlen(str) == dumb_strlen(str));
+    }
 
     {
         puts("\nTEST: strcpy()");
@@ -43,6 +45,22 @@ int main() {
         printf("src : %s\n", src);
         printf("dest: %s\n", dst);
     }
+
+    {
+        puts("\nTEST: strchr()");
+        const char str[] = "Hello World";
+        char tofind = 'W';
+
+        char *found = strchr(str, tofind);
+        //char *found = str + 6;
+
+        printf("find %c in %s\n", tofind, str);
+        printf("str  : %p\n", str);
+        printf("found: %p\n", found);
+        *found = 'Z';
+        printf("str  : %s\n", str);
+    }
+ 
 
     {
         puts("\nTEST: strncpy()");
@@ -120,14 +138,21 @@ int main() {
     }    
 
     {
-        puts("\nTEST: fgets()");
         char buff[10] = {};
-        memset(buff, '_', 9);
-
-        dumb_fgets(buff+1, 3, stdin);
+        fprintf(stderr, "----------------\n");
+        dumb_fgets(buff, 3, stdin);
+        fflush(stdout);
         //fgets(buff+1, 3, stdin);
-
-        dumb_puts(buff);
+        fprintf(stderr, "\n%s", buff);
+        fprintf(stderr, "----------------\n");
+    }
+    {
+        char buff[10] = {};
+        fprintf(stderr, "----------------\n");
+        //dumb_fgets(buff, 3, stdin);
+        fgets(buff, 3, stdin);
+        fprintf(stderr, "\n%s", buff);
+        fprintf(stderr, "----------------\n");
     }
 
 

@@ -1,9 +1,11 @@
 #include <dumb_string.h>
 
-char *dumb_strchr(const char *s, int c) {
+// TODO: when returning non-const char* any cast discards const qualifier
+//       so can I return const?
+const char *dumb_strchr(const char *s, int c) {
     do {
         if ( *s == c ) {
-            return (char *) s; // TODO: any cast discards const qualifier
+            return s; 
         }
     } while ( *s++ );
     return NULL;
