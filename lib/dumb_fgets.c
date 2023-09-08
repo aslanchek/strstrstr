@@ -29,9 +29,7 @@
  *
  */  
 char *dumb_fgets(char s[], int size, FILE *restrict stream) {
-
     if (feof(stream) && ferror(stream)) {
-        fprintf(stderr, "fgets panic!");
         return NULL;
     }
 
